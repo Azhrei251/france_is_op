@@ -1,0 +1,17 @@
+je_france_is_op = {
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	is_shown_when_inactive = {
+		exists = c:FRA
+		c:FRA = ROOT
+		NOT = { has_variable = french_fertility }
+	}
+
+	timeout = 1
+
+	on_timeout = {
+		trigger_event = {
+			id = france_is_op.1
+		}
+	}
+}

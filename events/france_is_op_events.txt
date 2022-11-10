@@ -1,0 +1,43 @@
+﻿namespace = france_is_op
+
+france_is_op.1 = {
+	type = country_event
+	placement = root
+	title = france_is_op.1.t
+	desc = france_is_op.1.d
+	flavor = france_is_op.1.f
+
+	duration = 1
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		exists = c:FRA
+		c:FRA = ROOT
+		NOT = { has_variable = french_fertility }
+	}
+	
+	
+	immediate = {
+		set_variable = {
+			name = french_fertility
+			value = yes
+		}
+	}
+
+	option = {
+		name = france_is_op.1.a
+		default_option = yes
+		add_modifier = {
+			name = french_birth_rate 
+			months = -1
+		}
+	}
+}
